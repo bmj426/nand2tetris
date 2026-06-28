@@ -21,6 +21,7 @@ int main(int argc, char** argv)
         dut->eval();
         printf("a: %d, b: %d => out: %d\n", dut->a, dut->b, dut->y);
     }
+    
     delete dut;
     return 0;
 }

@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Verilog: Build & Run",
+      "type": "shell",
+      "command": "iverilog -o sim *.v && vvp sim",
+      "options": { "cwd": "${fileDirname}" },
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "shared", "clear": true },
+      "group": { "kind": "build" }
+    },
+    {
+      "label": "Verilog: Build, Run & Wave",
+      "type": "shell",
+      "command": "iverilog -o sim *.v && vvp sim && gtkwave wave.vcd",
+      "options": { "cwd": "${fileDirname}" },
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "shared", "clear": true },
+      "group": "build"
+    },
+    {
+        "label": "Verilator: Build & Run",
+        "type": "shell",
+        "command": "verilator --cc --exe --build *.v sim_main.cpp --top-module nand_gate && ./obj_dir/Vnand_gate",
+        "options": { "cwd": "${fileDirname}" },
+        "problemMatcher": [],
+        "presentation": { "reveal": "always", "panel": "shared", "clear": true },
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
+    }
+  ]
+}
